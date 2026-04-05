@@ -1,0 +1,29 @@
+# --- 1. 排除虚拟环境（这是最大的杂物，几百MB，绝对不能传） ---
+.venv/
+venv/
+ENV/
+bin/
+lib/
+include/
+
+# --- 2. 排除 PyCharm 自己的配置（换台电脑这些配置会冲突） ---
+.idea/
+.vscode/
+*.iml
+
+# --- 3. 排除自动化产生的临时数据（Jenkins会自动重新生成） ---
+reports/
+allure-report/
+.pytest_cache/
+__pycache__/
+*.pyc
+logs/
+
+# --- 4. 排除本地驱动（每个人的浏览器版本不一样，不能传） ---
+msedgedriver.exe
+chromedriver.exe
+geckodriver.exe
+
+# --- 5. 如果你想排除某些特定的学习文件 ---
+# 比如你想排除所有以 "study_" 开头的文件
+# study_*.py
