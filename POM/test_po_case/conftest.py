@@ -12,15 +12,20 @@ def browser():
     if driver is None:
         system = platform.system()
         if system == "Windows":
-            driver_path = os.path.join(".","drivers","msedgedriver")#在我自己的Windows运行
-            service = EdgeService(executable_path=edge_driver_path)
+            driver_path = r"driver/msedgedriver.exe" #在我自己的Windows运行
+            service = EdgeService(executable_path=driver_path)
             driver = webdriver.Edge(service=service)
             edge_options = webdriver.EdgeOptions()
-        if system == "Darwin": #macos
+        elif system == "Darwin": #macos
+            # driver_path = EdgeChromiumDriverManager().install()
+            # service = EdgeService(driver_path)
+            # driver = webdriver.Edge(service=service)
+            # edge_options = webdriver.EdgeOptions()
+            driver = webdriver.Edge()
+            driver.maximize_window()
+            driver.implicitly_wait(10)
 
-            service = EdgeService(EdgeChromiumDriverManager.install())
-            driver = webdriver.Edge(service=service)
-            edge_options = webdriver.EdgeOptions()
+        driver.maximize_window()
 
 
     # global driver
