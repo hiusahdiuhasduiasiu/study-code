@@ -8,7 +8,6 @@ class LoginPage(BasePage):  #继承BasePage类
     hc_password = (By.ID, 'txtPassword')
     hc_login_button = (By.XPATH,'//*[@id="btnLogin"]')
     hc_quit = (By.XPATH, '//*[@id="headerUserInfo"]/span/a[2]')
-    hc_search_input = (By.XPATH, '//*[@id="searchKey"]')
 
         #告诉代码在做什么
     def do_login(self, username, password):
@@ -18,10 +17,7 @@ class LoginPage(BasePage):  #继承BasePage类
 
     def quit_login(self):
         self.click(self.hc_quit)
-    #清空搜索框再输入
-    def search_input(self):
-        self.find_element(By.XPATH, '//*[@id="txtSearch"]').clear()
-        self.click(self.hc_search_input)
+
 
 if __name__ == '__main__':
     lp = LoginPage()

@@ -14,7 +14,7 @@ class BasePage(object):
             # 初始化Edge浏览器
             self.driver = webdriver.Edge(service=service)
             # 最大化浏览器窗口
-            self.driver.maximize_window()
+
 
 
         #self.driver.set_window_maximize()

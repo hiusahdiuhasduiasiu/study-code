@@ -109,4 +109,6 @@ if __name__ == '__main__':
     # driver.find_element(By.XPATH, "/html/body/div[1]/form/div[7]/input").send_keys("长沙市") #城市
     # driver.find_element(By.XPATH, "/html/body/div[1]/form/div[8]/input").send_keys("岳麓区") #区县
 
+
+    driver.switch_to.default_content()
     sleep(2)

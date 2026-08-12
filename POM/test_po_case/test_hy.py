@@ -1,3 +1,5 @@
+import os
+
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 import pytest
@@ -51,7 +53,7 @@ class TestNovel:
     # #进阶，添加收藏，并判断是否成功收藏
     @allure.story("搜索与收藏功能 -- DDT")
     @allure.title("搜索：{book_name}")
-    @pytest.mark.parametrize("book_name",["剑来","雪中悍刀行","斗罗大陆"])
+    @pytest.mark.parametrize("book_name",["剑来","雪中悍刀行","向往之人生如梦"])
     #DDT核心数据
     def test_03(self, browser, book_name):#搜索小说，并点击阅读
         hy = LoginPage(browser)
@@ -89,7 +91,9 @@ class TestNovel:
 if __name__ == '__main__':
 #    pytest.main("-v","-s",__file__)
     # 运行会自动生成 report 数据到本地文件夹
-    pytest.main(["-s", "-v", "--alluredir=./reports", __file__])
+    pytest.main(["-s", "-v", "--alluredir=./reports", "--clean-alluredir", __file__])
+    os.system("allure serve ./reports")
+
 
 """
 from selenium.webdriver.common.by import By
